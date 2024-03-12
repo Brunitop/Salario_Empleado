@@ -1,0 +1,56 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+.letrero, .options {
+    width: 100%;
+    height: 15%;
+    background-color: #A9A9A9; /* Azul grisáceo desaturado */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: solid black 1px;
+}
+
+.letrero h1, .options button {
+    margin: 0;
+}
+
+.actions {
+    display: flex;
+    flex: 1;
+}
+
+.display {
+    width: 60%;
+    background-color: #FFFFFF; /* Blanco */
+    padding: 20px;
+}
+
+.input {
+    width: 40%;
+    background-color: #FFFFFF; /* Blanco */
+    padding: 20px;
+}
+
+/* Estilos adicionales para los botones */
+.options button {
+    margin: 10px;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    background-color: #A9A9A9; /* Azul grisáceo desaturado */
+    color: #FFFFFF; /* Blanco */
+    cursor: pointer;
+}
+
+.options button:hover {
+    background-color: #808080; /* Gris medio */
+}
