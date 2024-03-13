@@ -1,52 +1,151 @@
-const opciones = {
-    "Salario Por Hora": {
-        "Nombre": "text",
-        "Horas diarias": "number"
-    },
-    "Salario Por Mes": {
-        "Nombre": "text",
-        "Horas diarias": "number"
-    }
-    // Agrega más métodos según sea necesario
+var salariosPorCargo = {
+    "Jefe de departamento": 750,
+    "Gerente": 600,
+    "Supervisor": 450,
+    "Empleado": 300
 };
 
-function configurarInterfaz(opcionSeleccionada) {
-    const inputContainer = document.querySelector('.input');
-    inputContainer.innerHTML = ''; // Limpiar el contenido anterior
+function SalarioPorDia() {
+    var inputSection = document.getElementById("data-input");
+    inputSection.innerHTML = `
+        <div class="input-container">
+            <label for="id-empleado">ID Empleado:</label>
+            <input type="text" id="id-empleado" name="id-empleado">
+        </div>
+        <div class="input-container">
+            <label for="horas-trabajadas">Horas trabajadas:</label>
+            <input type="text" id="horas-trabajadas" name="horas-trabajadas">
+        </div>
+        <div class="input-container">
+            <label for="dias-trabajados">Días trabajados:</label>
+            <input type="text" id="dias-trabajados" name="dias-trabajados">
+        </div>
+        <div class="input-container">
+            <label for="tipo-cargo">Tipo de Cargo:</label>
+            <select id="tipo-cargo">
+                <option value="Jefe de departamento">Jefe de departamento</option>
+                <option value="Gerente">Gerente</option>
+                <option value="Supervisor">Supervisor</option>
+                <option value="Empleado">Empleado</option>
+            </select>
+        </div>
+        <button id="calcularSalarioPorDia" class="calculate-button">Calcular</button>
+        <div id="resultado"></div>
+    `;
 
-    // Obtener las especificaciones de entrada para la opción seleccionada
-    const especificaciones = opciones[opcionSeleccionada];
-
-    // Crear las cajas de texto según las especificaciones
-    for (const campo in especificaciones) {
-        const tipo = especificaciones[campo];
-        const label = document.createElement('label');
-        label.textContent = campo + ": ";
-        const input = document.createElement('input');
-        input.type = tipo;
-        input.name = campo.toLowerCase().replace(/\s+/g, '-'); // Convertir el nombre del campo en nombre de atributo
-        inputContainer.appendChild(label);
-        inputContainer.appendChild(input);
-        
-        // Agregar dos saltos de línea al final de cada caja de texto
-        const br1 = document.createElement('br');
-        const br2 = document.createElement('br');
-        inputContainer.appendChild(br1);
-        inputContainer.appendChild(br2);
-    }
+    document.getElementById("calcularSalarioPorDia").onclick = function () {
+        calcularSalarioPorDia();
+    };
 }
 
-function inicializarInterfaz() {
-    // Crear los botones de opciones y configurar su funcionalidad
-    const opcionesContainer = document.querySelector('.options');
-    for (const opcion in opciones) {
-        const boton = document.createElement('button');
-        boton.textContent = opcion;
-        boton.addEventListener('click', function() {
-            configurarInterfaz(opcion);
-        });
-        opcionesContainer.appendChild(boton);
+function calcularSalarioPorDia() {
+    var resultadoElement = document.getElementById("resultado");
+    var idEmpleado = document.getElementById("id-empleado").value;
+    var horasTrabajadas = parseFloat(document.getElementById("horas-trabajadas").value);
+    var diasTrabajados = parseFloat(document.getElementById("dias-trabajados").value);
+    var tipoCargo = document.getElementById("tipo-cargo").value;
+
+    if (isNaN(horasTrabajadas) || isNaN(diasTrabajados) || horasTrabajadas <= 0 || diasTrabajados <= 0) {
+        resultadoElement.innerText = "Error: Las horas y días trabajados deben ser números positivos.";
+        return;
     }
+
+    var salarioPorHora = salariosPorCargo[tipoCargo];
+    if (salarioPorHora === undefined) {
+        resultadoElement.innerText = "Error: Tipo de cargo no válido.";
+        return;
+    }
+
+    var salarioTotal = salarioPorHora * horasTrabajadas * diasTrabajados;
+    resultadoElement.innerText = "El empleado " + idEmpleado + " ganó $" + salarioTotal + " esta semana.";
 }
 
-window.addEventListener('DOMContentLoaded', inicializarInterfaz);
+function SalarioPorMes() {
+    var inputSection = document.getElementById("data-input");
+    inputSection.innerHTML = `
+        <div class="input-container">
+            <label for="id-empleado">ID Empleado:</label>
+            <input type="text" id="id-empleado" name="id-empleado">
+        </div>
+        <div class="input-container">
+            <label for="tipo-cargo">Tipo de Cargo:</label>
+            <select id="tipo-cargo">
+                <option value="Jefe de departamento">Jefe de departamento</option>
+                <option value="Gerente">Gerente</option>
+                <option value="Supervisor">Supervisor</option>
+                <option value="Empleado">Empleado</option>
+            </select>
+        </div>
+        <button id="calcularSalarioPorMes" class="calculate-button">Calcular</button>
+        <div id="resultado"></div>
+    `;
+
+    document.getElementById("calcularSalarioPorMes").onclick = function () {
+        calcularSalarioPorMes();
+    };
+}
+
+function calcularSalarioPorMes() {
+    var resultadoElement = document.getElementById("resultado");
+    var idEmpleado = document.getElementById("id-empleado").value;
+    var tipoCargo = document.getElementById("tipo-cargo").value;
+
+    var salarioPorMes = salariosPorCargo[tipoCargo];
+    if (salarioPorMes === undefined) {
+        resultadoElement.innerText = "Error: Tipo de cargo no válido.";
+        return;
+    }
+
+    var salario = salarioPorMes * 30;
+    resultadoElement.innerText = "El empleado " + idEmpleado + " gana $" + salario + " mensuales.";
+}
+
+function SalarioPorHora() {
+    var inputSection = document.getElementById("data-input");
+    inputSection.innerHTML = `
+        <div class="input-container">
+            <label for="id-empleado">ID Empleado:</label>
+            <input type="text" id="id-empleado" name="id-empleado">
+        </div>
+        <div class="input-container">
+            <label for="horas-trabajadas">Horas trabajadas:</label>
+            <input type="text" id="horas-trabajadas" name="horas-trabajadas">
+        </div>
+        <div class="input-container">
+            <label for="tipo-cargo">Tipo de Cargo:</label>
+            <select id="tipo-cargo">
+                <option value="Jefe de departamento">Jefe de departamento</option>
+                <option value="Gerente">Gerente</option>
+                <option value="Supervisor">Supervisor</option>
+                <option value="Empleado">Empleado</option>
+            </select>
+        </div>
+        <button id="calcularSalarioPorHora" class="calculate-button">Calcular</button>
+        <div id="resultado"></div>
+    `;
+
+    document.getElementById("calcularSalarioPorHora").onclick = function () {
+        calcularSalarioPorHora();
+    };
+}
+
+function calcularSalarioPorHora() {
+    var resultadoElement = document.getElementById("resultado");
+    var idEmpleado = document.getElementById("id-empleado").value;
+    var horasTrabajadas = parseFloat(document.getElementById("horas-trabajadas").value);
+    var tipoCargo = document.getElementById("tipo-cargo").value;
+
+    if (isNaN(horasTrabajadas) || horasTrabajadas <= 0) {
+        resultadoElement.innerText = "Error: Las horas trabajadas deben ser un número positivo.";
+        return;
+    }
+
+    var salarioPorHora = salariosPorCargo[tipoCargo];
+    if (salarioPorHora === undefined) {
+        resultadoElement.innerText = "Error: Tipo de cargo no válido.";
+        return;
+    }
+
+    var salarioTotal = salarioPorHora * horasTrabajadas;
+    resultadoElement.innerText = "El empleado " + idEmpleado + " ganó $" + salarioTotal + " esta semana.";
+}
