@@ -12,14 +12,17 @@ function SalarioPorDia() {
             <label for="id-empleado">ID Empleado:</label>
             <input type="text" id="id-empleado" name="id-empleado">
         </div>
+        <br></br>
         <div class="input-container">
             <label for="horas-trabajadas">Horas trabajadas:</label>
             <input type="text" id="horas-trabajadas" name="horas-trabajadas">
         </div>
+        <br></br>
         <div class="input-container">
             <label for="dias-trabajados">Días trabajados:</label>
             <input type="text" id="dias-trabajados" name="dias-trabajados">
         </div>
+        <br></br>
         <div class="input-container">
             <label for="tipo-cargo">Tipo de Cargo:</label>
             <select id="tipo-cargo">
@@ -29,6 +32,7 @@ function SalarioPorDia() {
                 <option value="Empleado">Empleado</option>
             </select>
         </div>
+        <br></br>
         <button id="calcularSalarioPorDia" class="calculate-button">Calcular</button>
         <div id="resultado"></div>
     `;
@@ -67,6 +71,7 @@ function SalarioPorMes() {
             <label for="id-empleado">ID Empleado:</label>
             <input type="text" id="id-empleado" name="id-empleado">
         </div>
+        <br></br>
         <div class="input-container">
             <label for="tipo-cargo">Tipo de Cargo:</label>
             <select id="tipo-cargo">
@@ -76,6 +81,7 @@ function SalarioPorMes() {
                 <option value="Empleado">Empleado</option>
             </select>
         </div>
+        <br></br>
         <button id="calcularSalarioPorMes" class="calculate-button">Calcular</button>
         <div id="resultado"></div>
     `;
@@ -107,10 +113,12 @@ function SalarioPorHora() {
             <label for="id-empleado">ID Empleado:</label>
             <input type="text" id="id-empleado" name="id-empleado">
         </div>
+        <br></br>
         <div class="input-container">
             <label for="horas-trabajadas">Horas trabajadas:</label>
             <input type="text" id="horas-trabajadas" name="horas-trabajadas">
         </div>
+        <br></br>
         <div class="input-container">
             <label for="tipo-cargo">Tipo de Cargo:</label>
             <select id="tipo-cargo">
@@ -120,6 +128,7 @@ function SalarioPorHora() {
                 <option value="Empleado">Empleado</option>
             </select>
         </div>
+        <br></br>
         <button id="calcularSalarioPorHora" class="calculate-button">Calcular</button>
         <div id="resultado"></div>
     `;
