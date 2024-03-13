@@ -12,7 +12,7 @@ body {
 .letrero, .options {
     width: 100%;
     height: 15%;
-    background-color: #A9A9A9; /* Azul grisáceo desaturado */
+    background-color: #0a9396; /* Azul grisáceo desaturado */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -21,6 +21,7 @@ body {
 
 .letrero h1, .options button {
     margin: 0;
+    color: white;
 }
 
 .actions {
@@ -35,22 +36,44 @@ body {
 }
 
 .input {
-    width: 40%;
+    width: 50%;
     background-color: #FFFFFF; /* Blanco */
     padding: 20px;
+    font-size: 30px;
 }
 
 /* Estilos adicionales para los botones */
 .options button {
     margin: 10px;
     padding: 10px 20px;
-    font-size: 16px;
+    font-size: 30px;
     border: none;
-    background-color: #A9A9A9; /* Azul grisáceo desaturado */
+    background-color: #0a9396; /* Azul grisáceo desaturado */
     color: #FFFFFF; /* Blanco */
     cursor: pointer;
+    font-family: American Typewriter, serif;
 }
 
 .options button:hover {
-    background-color: #808080; /* Gris medio */
+    background-color: #457b9d; /* Gris medio */
+}
+
+button {
+    padding: 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    font-size: 20px;
+    font-family: American Typewriter, serif;
+
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+#resultado {
+    margin-top: 20px;
+    font-weight: bold;
 }

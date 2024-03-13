@@ -9,20 +9,25 @@
 <body>
     <div class="container">
         <div class="letrero">
-            <h1>Calculadora de Salario</h1>
+            <h1 style="font-size: 50px;font-family: American Typewriter, serif">Calculadora de Salario</h1> 
         </div>
         <div class="options">
-            <!-- Aquí van los botones de opciones -->
+            <button onclick="SalarioPorHora()">Por Hora</button>
+            <button onclick="SalarioPorDia()">Por Día</button>
+            <button onclick="SalarioPorMes()">Por Mes</button>
         </div>
+
         <div class="actions">
             <div class="display">
-                <!-- Aquí se muestra el salario y otros datos -->
+                <div id="resultado"></div>
             </div>
-            <div class="input">
-                <!-- Aquí se muestran las cajas de texto para las variables -->
+            <div class="input" id="data-input">
+                
+                <!-- Aquí se insertarán los campos de entrada según la opción seleccionada -->
             </div>
         </div>
     </div>
+
     <script src="functions.js"></script>
 </body>
 </html>
