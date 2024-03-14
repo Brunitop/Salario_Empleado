@@ -89,7 +89,6 @@ function calcularSalarioPorDia() {
     var tipoCargo = document.getElementById("tipo-cargo").value;
 
     var salarioPorHora = salariosPorCargo[tipoCargo];
-
     if (isNaN(horasTrabajadas) || isNaN(diasTrabajados) || horasTrabajadas <= 0 || diasTrabajados <= 0) {
         resultadoTotal.innerText = "Error: Las horas y días trabajados deben ser números positivos.";
         return;
