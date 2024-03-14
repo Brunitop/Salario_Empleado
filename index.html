@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Salario</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="letrero">
+            <h1 style="font-size: 50px;font-family: American Typewriter, serif">Calculadora de Salario</h1> 
+        </div>
+        <div class="options">
+            <button onclick="SalarioPorHora()">Por Hora</button>
+            <button onclick="SalarioPorDia()">Por Día</button>
+            <button onclick="SalarioPorMes()">Por Mes</button>
+        </div>
+
+        <div class="actions">
+            <div class="display">
+                <div id="resultado"></div>
+            </div>
+            <div class="input" id="data-input">
+                <!-- Aquí se insertarán los campos de entrada según la opción seleccionada -->
+            </div>
+        </div>
+       
+        
+
+
+        <div class="employee-info">
+            <div class="employee-image">
+                <img src="foto.png" alt="Foto de perfil">
+            </div>
+            <div class="employee-name">
+                Nombre del empleado
+            </div>
+        </div>
+    </div>
+
+    <script src="functions.js"></script>
+</body>
+</html>
